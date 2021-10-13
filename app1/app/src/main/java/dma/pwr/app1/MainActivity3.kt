@@ -12,7 +12,7 @@ class MainActivity3 : Activity() {
         setContentView(R.layout.activity_main3)
     }
 
-    fun goBackTo1() {
+    fun goBackTo1(view: View) {
         onBackPressed()
     }
 
