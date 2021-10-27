@@ -4,65 +4,77 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
-import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var listview = findViewById<ListView>(R.id.listview);
-        val values = arrayOf(
-            "Android", "iPhone", "WindowsMobile",
-            "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-            "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-            "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-            "Android", "iPhone", "WindowsMobile"
+        var listView = findViewById<ListView>(R.id.listview);
+        val valuesArray = arrayOf(
+            DataEntry("Anthony", "Jackson"),
+            DataEntry("Harold", "Aiello"),
+            DataEntry("Donald", "Adams"),
+            DataEntry("Lori", "Bartlett"),
+            DataEntry("Ernest", "Harrison"),
+            DataEntry("James", "Tillis"),
+            DataEntry("James", "Wilson"),
+            DataEntry("Joe", "Moss"),
+            DataEntry("Tracy", "Stone"),
+            DataEntry("Rosa", "Edgar"),
+            DataEntry("Earl", "Mayo"),
+            DataEntry("Jan", "Gilman"),
+            DataEntry("Donald", "Jackson"),
+            DataEntry("Christian", "Towle"),
+            DataEntry("Gerda", "Cavanaugh"),
+            DataEntry("Cheryl", "Greene"),
+            DataEntry("James", "Davis"),
+
         )
 
-        val list = ArrayList<String>()
-        for (element in values) {
-            list.add(element)
+        val valuesList = ArrayList<String>()
+        for (element in valuesArray) {
+            // converts complex data to a single string
+            valuesList.add("${element.firstName} ${element.lastName}")
         }
-        val adapter = StableArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1, list
-        )
-        listview.adapter = adapter
 
-        listview.onItemClickListener =
-            OnItemClickListener { parent, view, position, id ->
-                val item = parent.getItemAtPosition(position) as String
-                view.animate().setDuration(2000).alpha(0F)
-                    .withEndAction {
-                        list.remove(item)
-                        adapter.notifyDataSetChanged()
-                        view.alpha = 1F
-                    }
-            }
+        val adapter = MyArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1, valuesList
+        )
+
+        listView.adapter = adapter
     }
 
-    private class StableArrayAdapter(
+    private class DataEntry(firstName: String, lastName: String) {
+        val firstName: String = firstName;
+        val lastName: String = lastName;
+    }
+
+    private class MyArrayAdapter(
         context: Context, textViewResourceId: Int,
         objects: List<String?>
     ) : ArrayAdapter<String?>(context, textViewResourceId, objects) {
-        var mIdMap = HashMap<String?, Int>()
-        override fun getItemId(position: Int): Long {
-            val item = getItem(position)
-            return mIdMap[item]!!.toLong();
+        var idsHashMap = HashMap<String?, Long>()
+
+        // generate item ids
+        init {
+            for (i in objects.indices) {
+                idsHashMap[objects[i]] = i.toLong();
+            }
         }
 
+        // will ids stay the same if we update the list of items?
+        // yes, because we generate it in init{}
         override fun hasStableIds(): Boolean {
             return true
         }
 
-        init {
-            for (i in objects.indices) {
-                mIdMap[objects[i]] = i
-            }
+        override fun getItemId(position: Int): Long {
+            val item = getItem(position)
+            return idsHashMap[item]!!;
         }
     }
 }
