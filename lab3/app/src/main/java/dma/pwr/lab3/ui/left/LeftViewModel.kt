@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class LeftViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Hello! It's middle fragment"
+        value = "Hello! It's left fragment"
     }
     val text: LiveData<String> = _text
 }

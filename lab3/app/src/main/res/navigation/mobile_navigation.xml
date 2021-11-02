@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/navigation_left"
-        android:name="dma.pwr.lab3.ui.middle.MiddleFragment"
+        android:name="dma.pwr.lab3.ui.left.LeftFragment"
         android:label="@string/title_left"
-        tools:layout="@layout/fragment_middle" />
+        tools:layout="@layout/fragment_left" />
 
     <fragment
         android:id="@+id/navigation_middle"
-        android:name="dma.pwr.lab3.ui.left.LeftFragment"
+        android:name="dma.pwr.lab3.ui.middle.MiddleFragment"
         android:label="@string/title_middle"
-        tools:layout="@layout/fragment_left" />
+        tools:layout="@layout/fragment_middle" />
 
     <fragment
         android:id="@+id/navigation_right"

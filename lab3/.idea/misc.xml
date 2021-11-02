@@ -10,7 +10,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.28396739130434784" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28396739130434784" />
+        <entry key="app/src/main/res/layout/fragment_left.xml" value="0.28396739130434784" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.28396739130434784" />
+        <entry key="app/src/main/res/layout/fragment_right.xml" value="0.28396739130434784" />
+        <entry key="app/src/main/res/layout/myfragment_fragment.xml" value="0.28396739130434784" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.43854166666666666" />
       </map>
     </option>

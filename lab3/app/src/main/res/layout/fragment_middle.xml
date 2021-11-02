@@ -7,7 +7,7 @@
     tools:context=".ui.middle.MiddleFragment">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/text_middle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,4 +19,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/my_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" app:layout_constraintTop_toTopOf="parent">
+        <requestFocus />
+    </EditText>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

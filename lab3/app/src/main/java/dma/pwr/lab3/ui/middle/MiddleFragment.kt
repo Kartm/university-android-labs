@@ -9,6 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dma.pwr.lab3.databinding.FragmentMiddleBinding
+import android.R
+
+import android.widget.EditText
+
+import android.R.string.no
+import android.text.Editable
+import android.text.TextWatcher
+
 
 class MiddleFragment : Fragment() {
 
@@ -30,10 +38,24 @@ class MiddleFragment : Fragment() {
         _binding = FragmentMiddleBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        val textView: TextView = binding.textMiddle
         middleViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        val editText: EditText = binding.myEditText;
+        editText.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                textView.text = s.toString();
+            }
+        })
+
         return root
     }
 

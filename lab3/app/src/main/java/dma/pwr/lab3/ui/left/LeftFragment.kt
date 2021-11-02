@@ -30,7 +30,7 @@ class LeftFragment : Fragment() {
         _binding = FragmentLeftBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+        val textView: TextView = binding.textLeft
         leftViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

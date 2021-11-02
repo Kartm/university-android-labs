@@ -30,7 +30,7 @@ class RightFragment : Fragment() {
         _binding = FragmentRightBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        val textView: TextView = binding.textRight
         rightViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
