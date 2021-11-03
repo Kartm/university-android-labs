@@ -33,27 +33,14 @@ class MiddleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         middleViewModel =
-            ViewModelProvider(this).get(MiddleViewModel::class.java)
+            ViewModelProvider(requireActivity()).get(MiddleViewModel::class.java)
 
         _binding = FragmentMiddleBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textMiddle
-        middleViewModel.text.observe(viewLifecycleOwner, Observer {
+        middleViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
-        })
-
-        val editText: EditText = binding.myEditText;
-        editText.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                textView.text = s.toString();
-            }
         })
 
         return root
