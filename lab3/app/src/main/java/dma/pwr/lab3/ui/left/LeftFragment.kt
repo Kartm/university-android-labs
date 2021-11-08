@@ -41,10 +41,6 @@ class LeftFragment : Fragment() {
             textView.text = it
         })
 
-//        middleViewModel =
-//            ViewModelProvider(requireActivity()).get(MiddleViewModel.class);
-
-
         middleViewModel = ViewModelProvider(requireActivity()).get(MiddleViewModel::class.java)
 
         val editText: EditText = binding.myEditText;
