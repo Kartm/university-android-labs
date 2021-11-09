@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 /**
@@ -39,7 +42,14 @@ class CardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.setBackgroundColor(ContextCompat.getColor(requireContext(), COLOR_MAP[counter!!]))
         val textViewCounter = view.findViewById<TextView>(R.id.tv_counter)
-        textViewCounter.text = "Fragment No $counter"
+        textViewCounter.text = "Fragment ${counter!! +  1}"
+
+
+        val tabLayout: TabLayout = requireActivity().findViewById(R.id.tab_layout)
+        val viewPager: ViewPager2 = requireActivity().findViewById(R.id.view_pager)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = "TAB ${(position + 1)}"
+        }.attach()
     }
 
     companion object {

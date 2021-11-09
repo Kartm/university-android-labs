@@ -19,6 +19,6 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
     }
 
     companion object {
-        private const val CARD_ITEM_SIZE = 10
+        private const val CARD_ITEM_SIZE = 5
     }
 }
