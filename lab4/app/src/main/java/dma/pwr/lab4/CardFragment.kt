@@ -53,6 +53,7 @@ class CardFragment : Fragment() {
     }
 
     companion object {
+        // kinda 'static' from Java
         private const val ARG_COUNT = "param1"
         fun newInstance(counter: Int?): CardFragment {
             val fragment = CardFragment()
