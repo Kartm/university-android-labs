@@ -7,12 +7,31 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/text_view_style"></TextView>
+        style="@style/text_view_style"
+        android:text="@string/name"></TextView>
     
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/star_image"
-        android:src="@android:drawable/btn_star_big_on"></ImageView>
+        android:src="@android:drawable/btn_star_big_on"
+        android:contentDescription="@string/image_placeholder"></ImageView>
+
+    <ScrollView
+        android:id="@+id/bio_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/bio_text"
+            style="@style/text_view_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingStart="@dimen/padding"
+            android:paddingEnd="@dimen/padding"
+            android:text="@string/bio" />
+    </ScrollView>
 
 </LinearLayout>
