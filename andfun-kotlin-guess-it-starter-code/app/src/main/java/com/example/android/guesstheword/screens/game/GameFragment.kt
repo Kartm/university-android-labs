@@ -73,6 +73,14 @@ class GameFragment : Fragment() {
                 viewModel.onGameFinishComplete()
             }
         })
+        viewModel.timerText.observe(viewLifecycleOwner, Observer { timerText ->
+            binding.timerText.text = timerText
+//
+//            if(hasFinished) {
+//                gameFinished()
+//                viewModel.onGameFinishComplete()
+//            }
+        })
 
         return binding.root
 
