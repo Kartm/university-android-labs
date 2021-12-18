@@ -53,6 +53,8 @@ class SleepTrackerViewModel(
      */
 
 
+
+
     private var tonight = MutableLiveData<SleepNight?>()
 
     val nights = database.getAllNights()
@@ -252,4 +254,6 @@ class SleepTrackerViewModel(
         viewModelJob.cancel()
     }
      */
+
+
 }
